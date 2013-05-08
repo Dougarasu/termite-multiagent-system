@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class CupimGenerator : MonoBehaviour 
+public class TermiteGenerator : MonoBehaviour 
 {
 	public GameObject prefab;
 	public float spawnTime = 1.0f;
@@ -10,6 +10,11 @@ public class CupimGenerator : MonoBehaviour
 	public Transform spawnPoint;
 	
 	private int spawneds = 0;
+	
+	void Awake()
+	{
+		spawnPoint = transform.FindChild("Spawn Point");
+	}
 	
 	IEnumerator Start ()
 	{

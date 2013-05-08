@@ -1,15 +1,14 @@
 using UnityEngine;
 using System.Collections;
 
-public class Cupim : MonoBehaviour
+public class Termite : MonoBehaviour
 {
 	public enum State
 	{
-		Idle,
+		Sleeping,
 		Initialize,
-		Setup,
-		//Actions
-		WakeUp
+		Searching,
+		Carrying
 	}
 	
 	public State _state;
@@ -19,7 +18,7 @@ public class Cupim : MonoBehaviour
 		_state = State.Initialize;	
 	}
 	
-	IEnumerator Start () 
+	/*IEnumerator Start () 
 	{
 		//Finite State Engine
 		while (true) 
@@ -34,8 +33,8 @@ public class Cupim : MonoBehaviour
 					Setup();
 					break;
 					
-				case State.WakeUp:
-					WakeUp();
+				case State.Carrying:
+					
 					break;
 				
 				default:
@@ -58,7 +57,7 @@ public class Cupim : MonoBehaviour
 	{
 		//lógica
 		GetComponent<Wander>().enabled = false;
-		_state = State.WakeUp;
+		_state = State.;
 		
 	}
 	
@@ -71,6 +70,6 @@ public class Cupim : MonoBehaviour
 		GetComponent<Wander>().enabled = true;
 		
 		_state = State.Idle;
-	}
+	}*/
 }
 

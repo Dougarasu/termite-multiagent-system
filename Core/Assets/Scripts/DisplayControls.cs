@@ -12,6 +12,6 @@ public class DisplayControls : MonoBehaviour
 		
 		//Mensagens de bugs ou outras (superior)
 		GUI.Box(new Rect(Screen.width * 0.5f - 150 + 20, 10, 300, 50), "");
-		GUI.Label(new Rect(Screen.width * 0.5f - 145 + 20, 10, 290, 20), "NOTA: ainda nao foi implementado o Monte.");
+		GUI.Label(new Rect(Screen.width * 0.5f - 145 + 20, 10, 290, 20), "DEBUG: esta com erro na segunda tentativa de dropar a madeira.");
 	}
 }

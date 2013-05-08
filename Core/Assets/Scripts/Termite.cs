@@ -5,10 +5,10 @@ public class Termite : MonoBehaviour
 {
 	public enum State
 	{
-		Sleeping,
-		Init,
-		Searching,
-		Carrying
+		Sleeping,			// Estado em que o cupim está em repouso, aguardando seu 'ativamento'
+		Init,				// Estado de inicialização de variáveis e outros recursos
+		Searching,			// Estado em que o cupim está andando aleatoriamente pelo cenário à procura de uma madeira
+		Carrying			// Estado em que o cupim está retornando ao monte de referência 
 	}
 	
 	public State _state;
@@ -64,6 +64,34 @@ public class Termite : MonoBehaviour
 		}
 	}
 	
+	/// <summary>
+	/// Função que mostra os gizmos na tab Scene.
+	/// </summary>
+	void OnDrawGizmos()
+	{
+		//Gizmo da 'mão' do cupim
+		Gizmos.color = Color.red;
+		Gizmos.DrawWireSphere(transform.position, GetComponent<SphereCollider>().radius);	
+	}
+	
+	void OnTriggerEnter(Collider col)
+	{
+		//Estado de procura por madeira
+		if (!targetWood && _state == State.Searching)
+		{
+			//Se uma madeira foi encontrada, vai em direção a ela
+			if (col.CompareTag("wood"))
+			{
+				targetWood = col.transform;
+				
+				targetWood.rigidbody.isKinematic = true;
+				targetWood.rigidbody.useGravity = false;
+				
+				StopCoroutine("NewHeading");
+			}
+		}
+	}
+	
 	private void Initialize()
 	{
 		if (Input.GetKeyDown(KeyCode.A))
@@ -75,7 +103,7 @@ public class Termite : MonoBehaviour
 			_transform = transform;
 			
 			//TODO: uso provisório da posição do monte.
-			bundlePos = transform.position;
+			bundlePos = GameObject.Find("Bundle").transform.position;
 			
 			_state = State.Sleeping;
 		}
@@ -139,43 +167,26 @@ public class Termite : MonoBehaviour
 	
 	private void Carrying()
 	{		
+		//Vai em direção à posição do monte conhecido
 		Quaternion targetRotation = Quaternion.LookRotation(bundlePos - _transform.position, Vector3.up); 
 		_transform.LookAt(bundlePos);
 		_controller.SimpleMove(moveSpeed * _transform.forward);
+	}
+	
+	//TODO: arrumar a segunda tentativa de dropar madeira.
+	public Transform DropWood()
+	{
+		//Deixa a madeira cair
+		Transform w = hand.GetChild(0);
 		
-		//Verifica se aproximou o suficiente da madeira para poder pegá-la
-		if (Vector3.Distance(bundlePos, _transform.position) < 1f)
-		{	
-			hand.GetChild(0).rigidbody.isKinematic = false;
-			hand.GetChild(0).rigidbody.useGravity = true;
-			hand.DetachChildren();
-			
-			_state = State.Sleeping;
-		}
-	}
-	
-	void OnDrawGizmos()
-	{
-		Gizmos.color = Color.red;
-		Gizmos.DrawWireSphere(transform.position, GetComponent<SphereCollider>().radius);	
-	}
-	
-	void OnTriggerEnter(Collider col)
-	{
-		//Estado de procura por madeira
-		if (!targetWood && _state == State.Searching)
-		{
-			//Se uma madeira foi encontrada, vai em direção a ela
-			if (col.CompareTag("wood"))
-			{
-				targetWood = col.transform;
-				
-				targetWood.rigidbody.isKinematic = true;
-				targetWood.rigidbody.useGravity = false;
-				
-				StopCoroutine("NewHeading");
-			}
-		}
+		w.rigidbody.isKinematic = false;
+		w.rigidbody.useGravity = true;
+		
+		hand.DetachChildren();
+		
+		_state = State.Sleeping;
+		
+		return w;
 	}
 }
 

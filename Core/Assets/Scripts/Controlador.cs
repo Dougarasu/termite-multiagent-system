@@ -9,8 +9,11 @@ public class Controlador : MonoBehaviour
 	
 	void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.Space))
+		if (Input.GetKeyDown(KeyCode.Q))
 			MoveSpeed += speedAdd;
+		
+		if (Input.GetKeyDown(KeyCode.W))
+			MoveSpeed -= speedAdd;
 		
 		if (Input.GetKeyDown(KeyCode.A))
 			GameObject.Find("GeradorCupins").GetComponent<GeradorCupim>().TurnOn();	

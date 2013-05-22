@@ -21,6 +21,8 @@ public class Cupim : MonoBehaviour
 	{
 		_controller = GetComponent<CharacterController>();
 		_transform = transform;
+		_transform.rotation = Quaternion.Euler(new Vector3(0, Random.Range(0, 360), 0));
+		_heading = _transform.rotation.eulerAngles.y;
 		hand = transform.Find("hand");
 	}
 	
@@ -71,6 +73,8 @@ public class Cupim : MonoBehaviour
 	{
 		int floor = (int)Mathf.Clamp(_heading - maxHeadingChange, 0, 360);
 		int ceil  = (int)Mathf.Clamp(_heading + maxHeadingChange, 0, 360);
+//		float floor = _heading - maxHeadingChange;
+//		float ceil = _heading + maxHeadingChange;
 		_heading = Random.Range(floor, ceil);
 		_targetRotation = new Vector3(0, _heading, 0);
 	}

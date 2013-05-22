@@ -5,8 +5,9 @@ CUPIM:
 
 - Andam aleatoriamente pelo cenário.
 - Ao baterem em alguma "parede", eles invertem sua direção.
-- Se um cupim está carregando um pedaço de madeira, ao encontrar um fragmento de madeira, ele larga o fragmento que estava carregando e continua vagando.
+- Se um cupim está carregando um pedaço de madeira, ao encontrar um fragmento de madeira, ele larga o fragmento que estava carregando e deve guardar a posição do framento que ele encontrou.
 - Se um cupim não está carregando um fragmento, ao encontrar um fragmento de madeira, ele coleta o pedaço e volta a vagar aleatoriamente.
+- Se um cupim encontrar um fragmento de madeira, ele pega ela e volta na direção da ultima madeira encontrada.
 - Ao largar a madeira, ele inverte sua direção e escolhe entre -45, 0 ou 45 graus desta direção.
 - Ao encontrar com outro cupim, ele apenas continua seu caminho rumo ao desconhecido.
 

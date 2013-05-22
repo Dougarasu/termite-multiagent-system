@@ -1,0 +1,23 @@
+CUPIM:
+- Agente principal do ambiente, que é usado para "agrupar as madeiras" que estão espalhadas pelo cenário.
+
+1 - Regras:
+
+- Andam aleatoriamente pelo cenário.
+- Ao baterem em alguma "parede", eles invertem sua direção.
+- Se um cupim está carregando um pedaço de madeira, ao encontrar um fragmento de madeira, ele larga o fragmento que estava carregando e continua vagando.
+- Se um cupim não está carregando um fragmento, ao encontrar um fragmento de madeira, ele coleta o pedaço e volta a vagar aleatoriamente.
+- Ao largar a madeira, ele inverte sua direção e escolhe entre -45, 0 ou 45 graus desta direção.
+- Ao encontrar com outro cupim, ele apenas continua seu caminho rumo ao desconhecido.
+
+
+2 - Sensores:
+
+- Sensor de colisão com madeira: ao entrar em contato com alguma madeira, envia mensagem da colisão para o cupim. É um trigger.
+
+- Sensor de colisão com parede: ao entrar em contato com uma parede, envia mensagem da colisão para o cupim com a nova direção a ser seguida.
+
+
+3 - Atuadores:
+
+- Pés: atuador que o faz "movimentar" pelo cenário, de maneira aleatória.

@@ -1,14 +1,14 @@
 using UnityEngine;
 using System.Collections;
 
-public class TermiteGenerator : MonoBehaviour 
+public class GeradorCupim : MonoBehaviour 
 {
 	public GameObject prefab;
 	public float spawnTime = 1.0f;
 	public int maxSpawns = 10;
-	public bool onOff = false;
-	public Transform spawnPoint;
 	
+	private bool onOff = false;
+	private Transform spawnPoint;
 	private int spawneds = 0;
 	
 	void Awake()
@@ -22,7 +22,7 @@ public class TermiteGenerator : MonoBehaviour
 		{
 			while (onOff)
 			{
-				if (spawneds > maxSpawns)
+				if (spawneds >= maxSpawns)
 				{
 					spawneds = 0;
 					onOff = false;
@@ -37,5 +37,10 @@ public class TermiteGenerator : MonoBehaviour
 			
 			yield return null;
 		}
+	}
+	
+	public void TurnOn()
+	{
+		onOff = true;
 	}
 }

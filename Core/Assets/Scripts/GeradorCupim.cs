@@ -1,11 +1,14 @@
 using UnityEngine;
 using System.Collections;
 
+//
+//Gerador de cupim, que cria todos os cupins no cenário.
+//
 public class GeradorCupim : MonoBehaviour 
 {
-	public GameObject prefab;
-	public float spawnTime = 1.0f;
-	public int maxSpawns = 10;
+	public GameObject prefab;				//Prefab do cupim
+	public float spawnTime = 1.0f;			//Intervalo de tempo entre cada criação de cupim (em segundos)
+	public int maxSpawns = 10;				//Quantidade máxima de cupins a serem criados
 	
 	private bool onOff = false;
 	private Transform spawnPoint;
@@ -16,31 +19,35 @@ public class GeradorCupim : MonoBehaviour
 		spawnPoint = transform.FindChild("Spawn Point");
 	}
 	
-	IEnumerator Start ()
+	IEnumerator StartGenerator()
 	{
-		while (true)
+		//Enquanto estiver ligado o gerador, cria os cupins na posição 'spawnPoint' até que todos os 'maxSpawns' cupins forem criados
+		while (onOff)
 		{
-			while (onOff)
+			if (spawneds >= maxSpawns)
 			{
-				if (spawneds >= maxSpawns)
-				{
-					spawneds = 0;
-					onOff = false;
-					break;
-				}
+				spawneds = 0;
+				onOff = false;
 				
-				Instantiate(prefab, spawnPoint.position, spawnPoint.rotation);	
-				spawneds++;
+				StopAllCoroutines();
 				
-				yield return new WaitForSeconds(spawnTime);	
+				Debug.Log("Gerador de cupim parou.");
+				
+				break;
 			}
 			
-			yield return null;
+			Instantiate(prefab, spawnPoint.position, spawnPoint.rotation);	
+			spawneds++;
+			
+			yield return new WaitForSeconds(spawnTime);	
 		}
 	}
 	
+	//Liga o gerador
 	public void TurnOn()
 	{
 		onOff = true;
+		
+		StartCoroutine("StartGenerator");
 	}
 }

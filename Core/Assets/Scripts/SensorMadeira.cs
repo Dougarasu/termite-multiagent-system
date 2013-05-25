@@ -1,6 +1,9 @@
 using UnityEngine;
 using System.Collections;
 
+//
+//Sensor de madeira, para comunicar ao cupim quando encontrar uma madeira no cenário.
+//
 public class SensorMadeira : MonoBehaviour 
 {
 	private Cupim agent;
@@ -12,6 +15,7 @@ public class SensorMadeira : MonoBehaviour
 	
 	void OnTriggerEnter(Collider col)
 	{
+		//Se encontrou uma madeira, envia mensagem para o cupim com o 'transform' da madeira
 		if (col.CompareTag("wood"))
 		{
 			agent.WoodFound(col.transform);

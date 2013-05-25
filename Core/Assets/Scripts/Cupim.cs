@@ -1,17 +1,18 @@
 using UnityEngine;
 using System.Collections;
 
+//
+//Classe do cupim que executa todas as funções e regras impostas no simulador.
+//
 [RequireComponent(typeof(CharacterController))]
 public class Cupim : MonoBehaviour
 {
-	public Transform hand;
-	public bool isCarryingWood = false;
-	public bool wandering = false;
+	public float rotationDamping = 40;				//Amortecimento de rotação
+	public float directionChangeInterval = 1f;		//Intervalo de tempo entre cada troca de direção (em segundos)
+	public float maxHeadingChange = 90;				//Intervalo máximo para troca de direção, positivo e negativo a partir da direção atual do cupim
 	
-	public float rotationDamping = 40;
-	public float directionChangeInterval = 1f;
-	public float maxHeadingChange = 90;
-	
+	private bool _wandering = false;
+	private Transform _hand;
 	private float _heading;
 	private Vector3 _targetRotation;
 	private Transform _transform;
@@ -23,87 +24,87 @@ public class Cupim : MonoBehaviour
 		_transform = transform;
 		_transform.rotation = Quaternion.Euler(new Vector3(0, Random.Range(0, 360), 0));
 		_heading = _transform.rotation.eulerAngles.y;
-		hand = transform.Find("hand");
+		
+		_hand = transform.Find("hand");
 	}
 	
 	void OnEnable()
 	{
-		wandering = true;	
+		_wandering = true;	
 		StartCoroutine("NewHeading");
 	}
 	
 	void OnDisable()
 	{
-		wandering = false;	
+		_wandering = false;	
 		StopAllCoroutines();
 	}
 	
-//	void Start()
-//	{
-//		wandering = true;
-//		StartCoroutine("NewHeading");
-//	}
-	
 	void FixedUpdate()
 	{
-		if (wandering)
+		//Se cupim estiver vagando pelo cenário, randomiza a direção de movimento 
+		if (_wandering)
 		{
 			_transform.eulerAngles = Vector3.Slerp(_transform.eulerAngles, _targetRotation, Time.deltaTime * directionChangeInterval);
 			Vector3 forward = _transform.TransformDirection(Vector3.forward);
 			_controller.SimpleMove(forward * Controlador.MoveSpeed);	
 		}
+		//Senão, começa a andar aleatoriamente pelo cenário
 		else
 		{
-			wandering = true;
+			_wandering = true;
 			
 			StartCoroutine("NewHeading");
 		}
 	}	
 	
+	//Executa a aleatorização do cupim a cada intervalo de troca
 	private IEnumerator NewHeading ()
 	{
-		while (wandering)
+		while (_wandering)
 		{
 			NewHeadingRoutine();
 			yield return new WaitForSeconds(directionChangeInterval);
 		}
 	}
 	
+	//Randomiza a direção do cupim
 	private void NewHeadingRoutine ()
 	{
 		int floor = (int)Mathf.Clamp(_heading - maxHeadingChange, 0, 360);
 		int ceil  = (int)Mathf.Clamp(_heading + maxHeadingChange, 0, 360);
-//		float floor = _heading - maxHeadingChange;
-//		float ceil = _heading + maxHeadingChange;
+		
 		_heading = Random.Range(floor, ceil);
 		_targetRotation = new Vector3(0, _heading, 0);
 	}
 	
+	//Recebe a nova direção, mensagem vinda do sensor de parede
 	public void WallHit(Vector3 newDir)
 	{
 		_transform.rotation = Quaternion.Euler(newDir);
 		_heading = _transform.eulerAngles.y;
 		
-		wandering = false;
+		_wandering = false;
 			
 		StopCoroutine("NewHeading");
 	}
 	
+	//Recebe o transform da madeira, mensagem vinda do sensor de mandeira
 	public void WoodFound(Transform wood)
 	{
-		if (hand.GetChildCount() == 0)
+		if (_hand.GetChildCount() == 0)
 		{
-			wood.position = hand.position;
-			wood.rotation = hand.rotation;
+			wood.position = _hand.position;
+			wood.rotation = _hand.rotation;
 			wood.rigidbody.isKinematic = true;
 			wood.rigidbody.useGravity = false;
 			wood.collider.enabled = false;
 			
-			wood.parent = hand;
+			wood.parent = _hand;
 		}
 		else
 		{
-			Transform w = hand.GetChild(0);
+			Transform w = _hand.GetChild(0);
 		
 			w.rigidbody.isKinematic = false;
 			w.rigidbody.useGravity = true;
@@ -114,9 +115,15 @@ public class Cupim : MonoBehaviour
 			_transform.Rotate(0, 180, 0);
 			_heading = _transform.eulerAngles.y;
 			
-			wandering = false;
+			_wandering = false;
 			
 			StopCoroutine("NewHeading");
 		}
 	}
+	
+	//Deixa madeira no cenário
+	public void DropWood()
+	{
+		_hand.DetachChildren();
+	}	
 }

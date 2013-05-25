@@ -11,18 +11,17 @@ using System.IO;
 //		S			Para a movimentação de todos os cupins em cena
 //		D			Continua a movimentação de todos os cupins em cena
 //		Z			Salva as posições das madeiras em cena, num arquivo no disco
-//	Escape			Sai do modo teste e volta para o modo normal
 //
 public class Controlador : MonoBehaviour 
 {
-	public static float MoveSpeed = 5;		//Velocidade de todos os cupins na tela
+	public static float MoveSpeed = 10;		//Velocidade de todos os cupins na tela
 	public static bool TestMode;			//Condição do modo de teste
 	public static bool TermitesOn = false;	//Condição de ativação dos cupins na tela
 	
 	public bool testModeOn = false;			//Condição de ativação dos cupins na tela
 	public float speedAdd = 5;				//Acréscimo de velocidade para os cupins
-	public int testAmount = 2;				//Quantidade de testes que serão feitos
-	public int testInterval = 10;			//Tempo entre cada teste (em segundos)
+	public int testAmount = 10;				//Quantidade de testes que serão feitos
+	public int testInterval = 600;			//Tempo entre cada teste (em segundos)
 	public GeradorMadeira _woodGen;
 	public GeradorCupim []_termiteGen;
 	
@@ -106,15 +105,6 @@ public class Controlador : MonoBehaviour
 			//Salva as posições das madeiras em cena, num arquivo no disco
 			if (Input.GetKeyDown(KeyCode.Z))
 				GameObject.Find("GeradorMadeiras").GetComponent<GeradorMadeira>().SaveWoodPositions();
-		}
-		else 
-		{
-			//Sai do modo teste e volta para o modo normal
-			if (Input.GetKeyDown(KeyCode.Escape))
-			{
-				TestMode = false;
-				GameObject.Find("Display").GetComponent<DisplayControls>().ShowNormalDisplay();	
-			}
 		}
 	}
 	

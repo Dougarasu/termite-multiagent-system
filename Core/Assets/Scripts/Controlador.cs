@@ -20,7 +20,7 @@ public class Controlador : MonoBehaviour
 	
 	public bool testModeOn = false;			//Condição de ativação dos cupins na tela
 	public float speedAdd = 5;				//Acréscimo de velocidade para os cupins
-	public int testAmount = 10;				//Quantidade de testes que serão feitos
+	public int testAmount;					//Quantidade de testes que serão feitos
 	public int testInterval = 600;			//Tempo entre cada teste (em segundos)
 	public GeradorMadeira _woodGen;
 	public GeradorCupim []_termiteGen;
@@ -42,7 +42,7 @@ public class Controlador : MonoBehaviour
 			while (sssCnt <= testAmount)
 			{
 				StartCoroutine("ScreenshotEncode");
-				Debug.Log(">>> ScreenShot " + sssCnt + " tirada.");
+				Debug.Log(">>> ScreenShot " + sssCnt++ + " tirada.");
 				
 				yield return new WaitForSeconds(testInterval);
 			}		

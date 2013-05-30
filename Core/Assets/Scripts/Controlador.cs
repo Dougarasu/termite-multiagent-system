@@ -37,11 +37,11 @@ public class Controlador : MonoBehaviour
 			GameObject.Find("Display").GetComponent<DisplayControls>().ShowTestDisplay();
 			
 			int sssCnt = 0;
-			
+		
 			//Tira uma printscreen a cada intervalo de teste até que todos os testes sejam feitos
 			while (sssCnt <= testAmount)
 			{
-				StartCoroutine("ScreenshotEncode", sssCnt++);
+				StartCoroutine("ScreenshotEncode");
 				Debug.Log(">>> ScreenShot " + sssCnt + " tirada.");
 				
 				yield return new WaitForSeconds(testInterval);
@@ -133,7 +133,7 @@ public class Controlador : MonoBehaviour
 	}
 	
 	//Tira o printscreen da tela
-	IEnumerator ScreenshotEncode(int count)
+	IEnumerator ScreenshotEncode()
     {
         // wait for graphics to render
         yield return new WaitForEndOfFrame();
@@ -151,8 +151,7 @@ public class Controlador : MonoBehaviour
         byte[] bytes = texture.EncodeToPNG();
  
         // save our test image (could also upload to WWW)
-        File.WriteAllBytes("Test Files/ScreenShots/screenshot" + count + ".jpg", bytes);
-        count++;
+        File.WriteAllBytes("Test Files/ScreenShots/" + System.DateTime.Now.ToString("dd-MM-yyyy_HH-mm") + ".jpg", bytes);
  
         // Added by Karl. - Tell unity to delete the texture, by default it seems to keep hold of it and memory crashes will occur after too many screenshots.
         DestroyObject( texture );

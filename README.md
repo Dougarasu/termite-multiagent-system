@@ -41,18 +41,41 @@ The scene is represented with the following structure:
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-### Prerequisites
-
-You will need  installed.
-
 ### Installing
 
-After cloning or downloading this project to your computer:
+After cloning (https://github.com/Dougarasu/TrabalhoIA.git) or downloading this project to your computer:
 1. Open Unity application;
 1. Click the "Open" button on the top right window;
 1. Find and select the folder "Core" inside this project located in your computer;
 1. When the project loaded, open the scene "In Game";
 1. Press the "Play" button on the top center to execute the simulation.
+
+### Input:
+<table>
+  <tr>
+    <th>Action</th><th>Keys</th>
+  </tr>
+  <tr>
+    <td>Create termites</td><td>A</td>
+  </tr>
+  <tr>
+    <td>Pause termites</td><td>S</td>
+  </tr>
+  <tr>
+    <td>Resume termites</td><td>D</td>
+  </tr>
+</table>
+
+## Results
+
+The images below show a progression of the algorithm in the times 0/10/30/60 minutes.
+The application setup was:
+* 10 termites
+* 1000 logs
+* Spawn point to the center of the scenario [(x, y, z) = (0, 0, 0)]
+* Termite's direction changes at each 1 second
+
+
 
 ## Built With
 

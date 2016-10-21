@@ -79,19 +79,19 @@ The application setup was:
 
 #### Initial state, 0 minutes:
 
-<img src="https://github.com/Dougarasu/TrabalhoIA/blob/master/Docs/result_1.jpg" alt="" width="250" height="250">
+<img src="https://github.com/Dougarasu/TrabalhoIA/blob/master/Docs/result_1.jpg" alt="" width="300" height="300">
 
 #### 10 minutes later:
 
-<img src="https://github.com/Dougarasu/TrabalhoIA/blob/master/Docs/result_2.jpg" alt="" width="250" height="250">
+<img src="https://github.com/Dougarasu/TrabalhoIA/blob/master/Docs/result_2.jpg" alt="" width="300" height="300">
 
 #### 30 minutes later:
 
-<img src="https://github.com/Dougarasu/TrabalhoIA/blob/master/Docs/result_3.jpg" alt="" width="250" height="250">
+<img src="https://github.com/Dougarasu/TrabalhoIA/blob/master/Docs/result_3.jpg" alt="" width="300" height="300">
 
 #### 60 minutes later:
 
-<img src="https://github.com/Dougarasu/TrabalhoIA/blob/master/Docs/result_4.jpg" alt="" width="250" height="250">
+<img src="https://github.com/Dougarasu/TrabalhoIA/blob/master/Docs/result_4.jpg" alt="" width="300" height="300">
 
 ## Built With
 

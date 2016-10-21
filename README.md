@@ -12,10 +12,14 @@ You will need [Unity 5.x](https://unity3d.com) installed.
 
 ### Installing
 
-First you need to download the 
+After cloning or downloading this project to your computer:
 
 ```
-Give the example
+1. Open Unity application;
+2. Click the "Open" button on the top right window;
+3. Find and select the folder "Core" inside this project located in your computer;
+4. When the project loaded, 
+4. When the project loaded, press the "Play" button on the top center to execute the  
 ```
 
 And repeat

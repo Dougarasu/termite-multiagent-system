@@ -95,7 +95,6 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## TO-DO List
 
-* Add a communication system for the ants, specially to identify clustered log areas
 * Add different types of logs
-* Add different A.I. (e.g. make smarter ants)  
+* Add different A.I. (e.g. make smarter termites that can communicate to each other to find piled up log areas)  
 

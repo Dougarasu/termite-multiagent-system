@@ -1,8 +1,8 @@
 //hgignorefile
 
 syntax: glob
-Build
-Temp
+Core/Temp
+Core/Library
 obj
 *.suo
 *.sln
@@ -13,22 +13,4 @@ obj
 *.userprefs
 *.DS_Store
 Thumbs.db
-Library/ScriptAssemblies
-Library/cache
-Library/metadata
-Library/previews
-Library/AssetImportState
-Library/AssetServerCacheV3
-Library/AssetVersioning.db
-Library/BuildPlayer.prefs
-Library/EditorUserBuildSettings.asset
-Library/FailedAssetImports.txt
-Library/InspectorExpandedItems.asset
-Library/MonoManager.asset
-Library/ScriptMapper
-Library/assetDatabase3
-Library/assetservercachev3
-Library/expandedItems
-Library/guidmapper
-Library/AnnotationManager
 *-csharp.sln.*/

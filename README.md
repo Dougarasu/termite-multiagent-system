@@ -81,9 +81,17 @@ The application setup was:
 
 <img src="https://github.com/Dougarasu/TrabalhoIA/blob/master/Docs/result_1.jpg" alt="" width="250" height="250">
 
-10 minutes later:
+#### 10 minutes later:
 
 <img src="https://github.com/Dougarasu/TrabalhoIA/blob/master/Docs/result_2.jpg" alt="" width="250" height="250">
+
+#### 30 minutes later:
+
+<img src="https://github.com/Dougarasu/TrabalhoIA/blob/master/Docs/result_3.jpg" alt="" width="250" height="250">
+
+#### 60 minutes later:
+
+<img src="https://github.com/Dougarasu/TrabalhoIA/blob/master/Docs/result_4.jpg" alt="" width="250" height="250">
 
 ## Built With
 

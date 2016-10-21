@@ -38,11 +38,11 @@ After cloning or downloading this project to your computer:
 
 ## License
 
-This project was done in a academic  licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
-## Acknowledgments
+## TO-DO List
 
-* Hat tip to anyone who's code was used
-* Inspiration
-* etc
+* Add a communication system for the ants, specially to identify clustered log areas
+* Add different types of logs
+* Add different A.I. (e.g. make smarter ants)  
 

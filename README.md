@@ -35,7 +35,9 @@ Each agent has a structure such as:
 The scene is represented with the following structure:
 * **Scenario** - visual representation of the environment where the agents are acting. It has a "floor" object and "walls" colliders representing the boundaries of the environment.
 * **Termite Generator** - component responsible to control the generation of agents in the scenario, using a "spawn point" where all the agents will be created.
+ * You can set the **spawn delay** and the **max spawn amount** of termites to be created. 
 * **Log Generator** - component responsible to control the generation of logs in the scenario, using a "spawn area" where all the logs are created in random positions within this area.
+ * You can set the **spawn delay** and the **max spawn amount** of logs to be created.
 
 ## Getting Started
 

@@ -15,11 +15,20 @@ It was used the rigidbody system from Unity framework, with attributes such as:
 
 Each agent, represented by a digital termite, has only two rules:
 
-* If a termite find a log, and if it is already carrying one, he will leave the log nearby the one found and continue wandering randomly in the scenario;
-*	If a termite find a log, and if it is not carrying one, it grabs the log found and continue wandering randomly in the scenario.
+* IF a termite find a log, and IF it is already carrying one, THEN he will leave the log nearby the one found and continue wandering randomly in the scenario;
+*	IF a termite find a log, and IF it is not carrying one, THEN it grabs the log found and continue wandering randomly in the scenario.
 
-Each anget has a body structure such as:
-* 
+Each agent has a 3D structure such as:
+
+* **Body** - 
+
+* **Motion Actuator** - 
+
+* **Sensors** - 
+
+  * **Wall Sensor** - 
+  
+  * **Log Sensor** - 
 
 ## Getting Started
 

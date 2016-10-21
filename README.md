@@ -2,9 +2,28 @@
 
 A simulation that shows the usage of intelligent agents, programmed with a simple set of rules, to solve the problem of piling up scattered woods in a closed 3D environment.
 
+## Methodology
+
+It was used the rigidbody system from Unity framework, with attributes such as:
+* Position (x, y, z)
+* Rotation (x, y, z)
+* Angular Speed
+* Linear Speed
+* Mass
+
+### The Agents
+
+Each agent, represented by a digital termite, has only two rules:
+
+* If a termite find a log, and if it is already carrying one, he will leave the log nearby the one found and continue wandering randomly in the scenario;
+*	If a termite find a log, and if it is not carrying one, it grabs the log found and continue wandering randomly in the scenario.
+
+Each anget has a body structure such as:
+* 
+
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Prerequisites
 
@@ -13,18 +32,11 @@ You will need  installed.
 ### Installing
 
 After cloning or downloading this project to your computer:
-
-```
 1. Open Unity application;
-
-2. Click the "Open" button on the top right window;
-
-3. Find and select the folder "Core" inside this project located in your computer;
-
-4. When the project loaded, open the scene "Cenario";
-
-4. Press the "Play" button on the top center to execute the simulation.  
-```
+1. Click the "Open" button on the top right window;
+1. Find and select the folder "Core" inside this project located in your computer;
+1. When the project loaded, open the scene "In Game";
+1. Press the "Play" button on the top center to execute the simulation.
 
 ## Built With
 

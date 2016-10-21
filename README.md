@@ -77,8 +77,13 @@ The application setup was:
 * Spawn point to the center of the scenario [(x, y, z) = (0, 0, 0)]
 * Termite's direction changes at each 1 second
 
-Initial state, 0 minutes:
+#### Initial state, 0 minutes:
+
 <img src="https://github.com/Dougarasu/TrabalhoIA/blob/master/Docs/result_1.jpg" alt="" width="250" height="250">
+
+10 minutes later:
+
+<img src="https://github.com/Dougarasu/TrabalhoIA/blob/master/Docs/result_2.jpg" alt="" width="250" height="250">
 
 ## Built With
 

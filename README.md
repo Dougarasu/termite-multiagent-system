@@ -18,17 +18,24 @@ Each agent, represented by a digital termite, has only two rules:
 * IF a termite find a log, and IF it is already carrying one, THEN he will leave the log nearby the one found and continue wandering randomly in the scenario;
 *	IF a termite find a log, and IF it is not carrying one, THEN it grabs the log found and continue wandering randomly in the scenario.
 
-Each agent has a 3D structure such as:
+Each agent has a structure such as:
 
-* **Body** - 
+* **Body** - 3D primitive shaped like a red sphere and a rigidbody component.
 
-* **Motion Actuator** - 
+* **Motion Actuator** - component responsible to translate and rotate the agent in the scenario.
 
-* **Sensors** - 
+* **Sensors**:
 
-  * **Wall Sensor** - 
+  * **Wall Sensor** - component responsible to keep the agent inside the boundaries of the scenario using collision detection.
   
-  * **Log Sensor** - 
+  * **Log Sensor** - component responsible to interact with the scenario and find logs using collision detection.
+
+## The Environment
+
+The scene is represented with the following structure:
+* **Scenario** - visual representation of the environment where the agents are acting. It has a "floor" object and "walls" colliders representing the boundaries of the environment.
+* **Termite Generator** - component responsible to control the generation of agents in the scenario, using a "spawn point" where all the agents will be created.
+* **Log Generator** - component responsible to control the generation of logs in the scenario, using a "spawn area" where all the logs are created in random positions within this area.
 
 ## Getting Started
 

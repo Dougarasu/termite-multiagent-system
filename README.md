@@ -8,17 +8,11 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-You will need [Unity 5.x](https://unity3d.com) and over installed.
-
-```
-Give examples
-```
+You will need [Unity 5.x](https://unity3d.com) installed.
 
 ### Installing
 
-A step by step series of examples that tell you have to get a development env running
-
-Say what the step will be
+First you need to download the 
 
 ```
 Give the example

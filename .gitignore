@@ -1,8 +1,7 @@
 //hgignorefile
 
 syntax: glob
-Core/Temp
-Core/Library
+Temp
 obj
 *.suo
 *.sln
@@ -14,3 +13,4 @@ obj
 *.DS_Store
 Thumbs.db
 *-csharp.sln.*/
+Library

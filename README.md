@@ -100,8 +100,8 @@ The application setup was:
 
 ## Authors
 
-* **Douglas Púppio** - *Initial work* - [github](https://github.com/Dougarasu)
-* **Matheus Mina** - *Initial work* - [github](https://github.com/mfbmina)
+* **[Douglas Púppio](https://github.com/Dougarasu)** - *Initial work*
+* **[Matheus Mina](https://github.com/mfbmina)** - *Initial work*
 
 ## License
 

@@ -46,6 +46,7 @@ These instructions will get you a copy of the project up and running on your loc
 ### Installing
 
 After cloning (https://github.com/Dougarasu/TrabalhoIA.git) or downloading this project to your computer:
+
 1. Open Unity application;
 1. Click the "Open" button on the top right window;
 1. Find and select the folder "Core" inside this project located in your computer;
